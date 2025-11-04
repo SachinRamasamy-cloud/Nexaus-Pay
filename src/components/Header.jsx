@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function Header({ setSidebarOpen }) {
   return (
     <header className="flex justify-between items-center p-4 bg-white/70 backdrop-blur-xl 

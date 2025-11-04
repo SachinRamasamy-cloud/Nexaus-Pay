@@ -1,65 +1,12 @@
-// import React from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
-
-// export default function Slidebar() {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-
-//   const menuItems = [
-//     { icon: "fas fa-home", label: "Dashboard", path: "/" },
-//     { icon: "fas fa-credit-card", label: "Pay Bills", path: "/pay" },
-//     { icon: "fas fa-wallet", label: "Transactions", path: "/transaction" },
-//     { icon: "fas fa-gift", label: "Offers", path: "/offers" },
-//     { icon: "fas fa-cog", label: "Settings", path: "/settings" },
-//   ];
-
-//   return (
-//     <div className="hidden w-64 h-screen bg-gray-800 text-white p-6 sm:flex flex-col gap-6 shadow-xl">
-//       <div className="flex items-center justify-center gap-1 text-center">
-//         <img
-//           className="text-white h-10 w-10 bg-transparent rounded-full"
-//           src="https://png.pngtree.com/png-vector/20211011/ourmid/pngtree-n-symbol-letter-design-identity-png-image_3976218.png"
-//           alt=""
-//         />
-//         <h1
-//           className="text-2xl font-bold mb-3 mt-2"
-//           style={{ fontFamily: "Montserrat, sans-serif" }}
-//         >
-//           Nexaus Pay
-//         </h1>
-//       </div>
-
-//       <nav className="flex flex-col gap-4">
-//         {menuItems.map((item, idx) => {
-//           const isActive = location.pathname === item.path;
-
-//           return (
-//             <a
-//               key={idx}
-//               onClick={() => navigate(item.path)}
-//               className={`flex items-center gap-3 rounded-lg transition-all duration-300 cursor-pointer px-3 py-2 
-//               ${isActive ? "bg-[#3A7BFF] text-white font-semibold" : "text-gray-300 hover:bg-[#3A7BFF]/20 hover:text-white"}`}
-//             >
-//               <i
-//                 className={`${item.icon} p-2 rounded-full 
-//                 ${isActive ? "bg-white text-[#3A7BFF]" : "bg-[#3A7BFF] text-white"}`}
-//               ></i>
-//               <span>{item.label}</span>
-//             </a>
-//           );
-//         })}
-//       </nav>
-//     </div>
-//   );
-// }
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.jpg";
 
-export default function Slidebar({ sidebarOpen, setSidebarOpen }) {
+export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const menuItems = [
+  const menu = [
     { icon: "fas fa-home", label: "Dashboard", path: "/" },
     { icon: "fas fa-credit-card", label: "Pay Bills", path: "/pay" },
     { icon: "fas fa-wallet", label: "Transactions", path: "/transaction" },
@@ -69,56 +16,52 @@ export default function Slidebar({ sidebarOpen, setSidebarOpen }) {
 
   return (
     <div
-      className={`fixed sm:static top-0 left-0 h-full w-64 bg-gradient-to-b from-gray-900 to-gray-800 text-white p-6 flex flex-col justify-between transition-transform duration-300 z-50 
+      className={`fixed sm:static top-0 left-0 h-full w-64 
+      bg-gradient-to-b from-[#0A1227] to-[#004CFF] text-white p-6 
+      flex flex-col justify-between shadow-2xl
+      transition-transform duration-300 z-50
       ${sidebarOpen ? "translate-x-0" : "-translate-x-full sm:translate-x-0"}`}
     >
       <div className="flex flex-col gap-8">
-        <div className="flex items-center justify-center gap-2 mt-2">
-          <img
-            className="h-10 w-10"
-            src="https://png.pngtree.com/png-vector/20211011/ourmid/pngtree-n-symbol-letter-design-identity-png-image_3976218.png"
-            alt=""
-          />
-          <h1 className="text-2xl font-bold tracking-wide">Nexaus Pay</h1>
+        {/*name  */}
+        <div className="flex items-center gap-3 mt-2">
+          <img src={logo} className="h-12 w-12 rounded-full shadow-lg" alt="" />
+          <h1 className="text-xl font-bold tracking-wide">Nexaus Pay</h1>
         </div>
 
+        {/* menu */}
         <nav className="flex flex-col gap-3">
-          {menuItems.map((item, idx) => {
+          {menu.map((item, idx) => {
             const isActive = location.pathname === item.path;
             return (
-              <a
+              <button
                 key={idx}
-                onClick={() => {
-                  navigate(item.path);
-                  setSidebarOpen(false); // ✅ Fixed
-                }}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 cursor-pointer transition-all duration-300 
-                ${isActive ? "bg-blue-600 text-white shadow-lg scale-[1.03]" : "text-gray-300 hover:bg-blue-600/20 hover:text-white"}`}
+                onClick={() => { navigate(item.path); setSidebarOpen(false); }}
+                className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left
+                transition-all duration-300
+                ${
+                  isActive
+                    ? "bg-white text-[#004CFF] shadow-lg scale-[1.05]"
+                    : "text-gray-200 hover:bg-white/10"
+                }`}
               >
-                <div
-                  className={`flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300 
-                  ${isActive ? "bg-white text-blue-600" : "bg-blue-600/20 hover:bg-blue-600 hover:text-white"}`}
-                >
-                  <i className={`${item.icon} text-lg`}></i>
-                </div>
-
-                <span className={`${isActive ? "font-semibold" : "font-medium"}`}>
-                  {item.label}
-                </span>
-              </a>
+                <i className={`${item.icon} text-lg`}></i>
+                <span>{item.label}</span>
+              </button>
             );
           })}
         </nav>
       </div>
 
-      {/* Logout Button */}
+      {/* Logout */}
       <button
         onClick={() => {
-          alert("Current account is logged out")
+          alert("Current account is logged out");
           localStorage.clear();
           window.location.reload();
         }}
-        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-600/80 hover:bg-red-600 transition duration-300 font-semibold"
+        className="flex items-center gap-3 px-4 py-3 rounded-xl 
+        bg-red-600/80 hover:bg-red-600 transition duration-300 font-semibold"
       >
         <i className="fas fa-sign-out-alt text-xl"></i>
         Logout

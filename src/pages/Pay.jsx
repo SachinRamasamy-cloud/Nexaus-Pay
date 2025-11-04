@@ -284,7 +284,7 @@ export default function Pay({ user, setuser }) {
           <div className="relative">
             <i className="fa-solid fa-indian-rupee-sign text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
             <input
-              type="text"
+              type="number"
               value={amount}
               onChange={(e) => setamount(e.target.value)}
               className="w-full p-3 bg-gray-50 rounded-lg pl-10 border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none text-lg font-semibold"

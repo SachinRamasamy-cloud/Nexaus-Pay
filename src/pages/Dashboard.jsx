@@ -397,7 +397,7 @@ export default function Dashboard({ user, setuser }) {
                             </div>
                         </div>
 
-                        <div onClick={()=>navigate("/transaction")} className="bg-blue-600 rounded-2xl p-6 flex flex-col items-center justify-center 
+                        <div onClick={() => navigate("/transaction")} className="bg-blue-600 rounded-2xl p-6 flex flex-col items-center justify-center 
   text-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                             <i className="fa-solid fa-wallet text-2xl mb-2"></i>
                             <h1 className="font-semibold text-center text-xs">Recent Transaction</h1>
@@ -411,15 +411,15 @@ export default function Dashboard({ user, setuser }) {
             {/* 3 */}
 
             <div className="grid grid-cols-1 sm:grid-cols-[60%_40%] gap-4 mb-2">
-                <div className="rounded-2xl shadow-xl bg-white dark:bg-gray-800 p-4 sm:p-6">
-                    <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+                <div className="rounded-2xl shadow-xl bg-white p-4 sm:p-6">
+                    <h1 className="text-xl font-semibold text-gray-800  mb-4">
                         Recent Transactions
                     </h1>
 
                     <div className="overflow-x-auto">
                         <table className="w-full min-w-[550px] border-collapse text-sm sm:text-base">
                             <thead>
-                                <tr className="bg-gray-50 dark:bg-gray-700/70 text-gray-700 dark:text-gray-200 border-b border-gray-200 dark:border-gray-600">
+                                <tr className="bg-gray-50 text-gray-700  border-b border-gray-200 ">
                                     <th className="p-3 font-semibold rounded-l-xl">From</th>
                                     <th className="p-3 font-semibold">Date & Time</th>
                                     <th className="p-3 font-semibold">Amount</th>
@@ -434,25 +434,24 @@ export default function Dashboard({ user, setuser }) {
                                     return (
                                         <tr
                                             key={idx}
-                                            className={`transition-all duration-300 group 
-                ${idx % 2 === 0 ? "bg-white dark:bg-gray-800" : "bg-gray-50 dark:bg-gray-900"}
-                hover:bg-blue-50 dark:hover:bg-blue-900/40 hover:shadow-sm`}
+                                            className={`transition-all duration-300 group bg-gray-50  border-b border-gray-200
+                hover:bg-blue-50  hover:shadow-sm`}
                                         >
-                                            <td className="p-3 border-b border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100">
+                                            <td className="p-3 border-b border-gray-200 dark:border-gray-700 text-gray-800 ">
                                                 {tx.from}
                                             </td>
 
-                                            <td className="p-3 border-b border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300">
+                                            <td className="p-3 border-b border-gray-200 dark:border-gray-700 text-gray-800 ">
                                                 {tx.date}
                                             </td>
 
                                             <td
                                                 className={`p-3 border-b border-gray-200 dark:border-gray-700 font-semibold 
                   ${isReceived
-                                                        ? "text-green-600 dark:text-green-400"
+                                                        ? "text-green-600 "
                                                         : isAdded
-                                                            ? "text-blue-600 dark:text-blue-400"
-                                                            : "text-red-600 dark:text-red-400"
+                                                            ? "text-blue-600"
+                                                            : "text-red-600 "
                                                     }`}
                                             >
                                                 ₹{tx.amount}
@@ -462,10 +461,10 @@ export default function Dashboard({ user, setuser }) {
                                                 <span
                                                     className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap
                     ${isReceived
-                                                            ? "bg-green-100 text-green-700 dark:bg-green-800/50 dark:text-green-300"
+                                                            ? "bg-green-100 text-green-700 "
                                                             : isAdded
-                                                                ? "bg-blue-100 text-blue-700 dark:bg-blue-800/50 dark:text-blue-300"
-                                                                : "bg-red-100 text-red-700 dark:bg-red-800/50 dark:text-red-300"
+                                                                ? "bg-blue-100 text-blue-700 "
+                                                                : "bg-red-100 text-red-700"
                                                         }`}
                                                 >
                                                     {tx.type}

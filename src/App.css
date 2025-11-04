@@ -1,0 +1,314 @@
+/* .animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(at 20% 30%, #a8cfff 0%, transparent 60%),
+              radial-gradient(at 80% 20%, #f7a8ff 0%, transparent 70%),
+              radial-gradient(at 40% 80%, #b5fff7 0%, transparent 60%),
+              radial-gradient(at 70% 70%, #c8b6ff 0%, transparent 70%),
+              radial-gradient(at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 80%);
+  filter: blur(80px);
+  animation: moveGradient 15s ease-in-out infinite alternate;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 20% 30%, 80% 20%, 40% 80%, 70% 70%, 50% 50%;
+  }
+  50% {
+    background-position: 30% 70%, 60% 40%, 70% 20%, 40% 60%, 60% 30%;
+  }
+  100% {
+    background-position: 20% 30%, 80% 20%, 40% 80%, 70% 70%, 50% 50%;
+  }
+} */
+/* .animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(at 20% 30%, #a8cfff 0%, transparent 60%),
+    radial-gradient(at 80% 20%, #f7a8ff 0%, transparent 70%),
+    radial-gradient(at 40% 80%, #b5fff7 0%, transparent 60%),
+    radial-gradient(at 70% 70%, #c8b6ff 0%, transparent 70%),
+    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 80%);
+  filter: blur(80px);
+  animation: moveGradient 15s ease-in-out infinite alternate;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 20% 30%, 80% 20%, 40% 80%, 70% 70%, 50% 50%;
+  }
+
+  50% {
+    background-position: 30% 70%, 60% 40%, 70% 20%, 40% 60%, 60% 30%;
+  } 
+
+  100% {
+    background-position: 20% 30%, 80% 20%, 40% 80%, 70% 70%, 50% 50%;
+  }
+} */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(74, 144, 255, 0.45) 0%, transparent 60%),
+    radial-gradient(circle at 85% 25%, rgba(255, 121, 198, 0.45) 0%, transparent 65%),
+    radial-gradient(circle at 40% 85%, rgba(76, 235, 185, 0.45) 0%, transparent 55%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.45) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  filter: blur(60px) brightness(1.08);
+  animation: bgMovement 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bgMovement {
+  0% {
+    background-position: 15% 20%, 85% 25%, 40% 85%, 75% 75%, 50% 50%;
+  }
+
+  50% {
+    background-position: 25% 70%, 60% 40%, 70% 20%, 40% 60%, 45% 35%;
+  }
+
+  100% {
+    background-position: 15% 20%, 85% 25%, 40% 85%, 75% 75%, 50% 50%;
+  }
+}
+
+
+.quickpay-icon:hover {
+  transform: rotateY(10deg) scale(1.15);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 50px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    transform: scale(1) rotateY(0deg);
+  }
+
+  50% {
+    transform: scale(1.1) rotateY(5deg);
+  }
+}
+
+.quickpay-icon {
+  animation: iconPulse 4s ease-in-out infinite;
+}
+
+.shine-btn {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.shine-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
+  transform: skewX(-20deg);
+}
+
+.shine-btn:hover::before {
+  animation: shine 0.9s ease-in-out forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+
+
+.button-ocean:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 15px 40px rgba(102, 126, 234, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* .dshine-button {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dshine-button::before {
+  content: '';
+  position: absolute;
+  height: 250%;
+  width: 40px;
+  top: 0;
+  left: -60px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(45deg) translateY(-35%);
+  animation: shine 3s ease infinite;
+} */
+
+.dshine-button {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* existing shine effect */
+.dshine-button::before {
+  content: '';
+  position: absolute;
+  height: 250%;
+  width: 40px;
+  top: 0;
+  left: -60px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(45deg) translateY(-35%);
+  animation: shine 3s ease infinite;
+}
+
+/* new circular hover pulse */
+.dshine-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.25);
+  /* subtle highlight */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+/* hover burst activates */
+.dshine-button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* keep text/icon above the animation */
+.dshine-button>* {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% {
+    left: -80px;
+  }
+
+  40% {
+    left: calc(100% + 20px);
+  }
+
+  100% {
+    left: calc(100% + 20px);
+  }
+}
+
+.blackhover-btn {
+  position: relative;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease, background 0.3s ease;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.blackhover-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease-in-out;
+  z-index: -1;
+}
+
+.blackhover-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.blackhover-btn:hover {
+  color: white !important;
+}
+
+.blackhover-btn i {
+  color: inherit !important;
+  transition: color 0.3s ease;
+}
+
+.blackhover-btn * {
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
